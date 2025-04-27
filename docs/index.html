@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Write Once, Run Anywhere: Transcompiling Tensor Programs for Deep Learning Systems with a Neural-Symbolic Approach">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Write Once, Run Anywhere: Transcompiling Tensor Programs for Deep Learning Systems with a Neural-Symbolic
+    Approach</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <!-- highlight code -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Mutual-Supervised Learning for Sequential-to-Parallel Code
+              Translation
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a>Shouyang Dong</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a>Yuanbo Wen</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a>Jun Bi</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a>Di Huang</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a>Jiaming Guo</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a>Jianxing Xu</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a>Ruibai Xu</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a>Xinkai Song</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a>Yifan Hao</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a>Ling Li</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a>Xuehai Zhou</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a>Tianshi Chen</a><sup>4</sup>,
+              </span>
+              <span class="author-block">
+                <a>Qi Guo</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a>Yunji Chen</a><sup>2</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>University of Science and Technology of China</span><br>
+              <span class="author-block"><sup>2</sup>Institute of Computing Technology, CAS</span><br>
+              <span class="author-block"><sup>3</sup>Institute of Software, CAS</span><br>
+              <span class="author-block"><sup>4</sup>Cambricon Technologies</span><br>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/todo" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/kcxain/falcon" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Heterogeneous deep learning systems (DLS) such as GPUs and ASICs have been widely deployed in industrial
+              data centers, which requires to develop multiple low-level tensor programs for different platforms. An
+              attractive solution to relieve the programming burden is to transcompile the legacy code of one platform
+              to others. However, current transcompilation techniques struggle with either tremendous manual efforts or
+              functional incorrectness, rendering “Write Once, Run Any- where" of tensor programs an open question. We
+              propose a novel transcompiler, i.e., FALCON, for auto-matically translating tensor programs across DLS via
+              both large language models (LLMs) and symbolic program synthesis, i.e., neural-symbolic synthesis. The key
+              insight is leveraging the powerful code generation ability of LLM to make costly search-based symbolic
+              synthesis computationally tractable. Concretely, we propose multiple LLM-assisted compilation passes via
+              pre-defined meta-prompts for program transformation. During each program transformation, efficient
+              symbolic program synthesis is employed to repair incorrect code snippets with a limited scale. To attain
+              high performance, we propose a hierarchical auto-tuning approach to systemically explore both the
+              parameters and sequences of transformation passes. Experiments on 4 DLS with distinct programming
+              interfaces, i.e., Intel DL Boost with VNNI, NVIDIA GPU with CUDA, AMD MI with HIP, and Cambricon MLU with
+              BANG, demonstrate that FALCON correctly translates different tensor programs at the accuracy of 95% on
+              average, and the performance of translated programs achieves up to 2.0× over vendor-provided
+              manually-optimized libraries. As a result, the programming productivity of DLS is improved by up to 96.0×
+              via transcompiling legacy tensor programs.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+      <!-- Overview. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Overview</h2>
+          <div class="content">
+            <p>
+              The overview of FALCON, a novel transcompiler for automatic transcompilation of tensor programs across
+              different programming models. FALCON consists of two parts: (a) neural-symbolic program synthesis, which
+              utilizes LLM to transform code and repair incorrect transformation through symbolic synthesis with limited
+              scales, and (b) hierarchical performance auto-tuning, which systemically explores both the parameters and
+              sequences of transformation passes.
+            </p>
+          </div>
+          <img src="./static/images/overview.png">
+        </div>
+      </div>
+      <!--/ Overview. -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-3"> Main Results </h2>
+            We present the evaluations on compilation/computation accuracy, where we compare
+            FALCON with state-of-the-art methods in different transcompilation directions. We conclude that (1) FALCON
+            performs the best in all directions with close to 100% accuracy for compilation and 86.9% to 100% accuracy
+            for computation. This clearly indicates that FALCON is capable of handling source-to-source code translation
+            tasks on various DLS with minimal human efforts, bringing revolutionary advancements to the DLS programming
+            domain. (2) FALCON performs better than the SOTA LLM-based methods. Although the LLM-based methods
+            have achieved high accuracy in certain cases, it is challenging for them to reach 100% accuracy due to the
+            uncertainty of LLMs. This means that LLM-based methods cannot be applied to transcompilers which have an
+            extremely high demand for accuracy. In contrast, our approach can achieve 100% accuracy in most situations,
+            demonstrating its practical applicability as a transcompiler. (3) FALCON performs better than the SOTA
+            rule-based methods. For C → CUDA C, FALCON achieves 100% compilation and 98.2% computation
+            accuracy, which is ∼50% higher than PPCG. For the easier CUDA C → HIP task, FALCON successfully converts and
+            executes with 100% accuracy, outperforming HIPIFY, which achieves 85.7%. Also, this result shows that
+            FALCON’s flexibility across various DLS without much adaptation cost while rule-based methods cannot.
+            <div class="has-text-centered">
+              <img src="./static/images/result.png" width="65%" style="margin: 0 auto;">
+            </div>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="container is-max-desktop">
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-3"> Translation Cases </h2>
+              <p>
+                These results are produced by MSL-r3 (Llama3-8B).
+              </p>
+              <div class="has-text-centered">
+                <img src="./static/images/cases.png" style="margin: 0 auto;">
+              </div>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <hr/> -->
+      <!-- <section class="section" id="BibTeX"> -->
+      <!-- <div class="columns is-centered"> -->
+      <div class="container content is-max-desktop">
+        <h2 class="title is-3"> BibTex </h2>
+        <pre>
+      <pre>
+  <code class="nohighlight" style="background-color: transparent; color: black; font-family: monospace;">@InProceedings{
+    title = 	 {Write Once, Run Anywhere: Transcompiling Tensor Programs for Deep Learning Systems with a Neural-Symbolic Approach},
+    author =       {Shouyang Dong, Yuanbo Wen, Jun Bi, Di Huang, Jiaming Guo, Jianxing Xu, Ruibai Xu, Xinkai Song, Yifan Hao, Ling Li, Xuehai Zhou, Tianshi Chen, Qi Guo, Yunji Chen},
+    year = 	 {2025}
+  }</code>
+    </pre>
+      </div>
+      <!-- </section> -->
+  </section>
+
+  <!-- <hr/> -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              Thanks for the website template <a href="https://nerfies.github.io">Nerfies</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
