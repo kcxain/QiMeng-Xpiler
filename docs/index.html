@@ -136,11 +136,11 @@
 
   <section class="section">
     <div class="container is-max-desktop">
-      <!-- Overview. -->
+      <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
-        <div class="column">
+        <div class="column is-four-fifths">
           <h2 class="title is-3">Overview</h2>
-          <div class="content">
+          <div class="content has-text-justified">
             <p>
               Heterogeneous deep learning systems (DLS) such as GPUs and ASICs have been widely deployed in industrial
               data centers, which requires to develop multiple low-level tensor programs for different platforms. An
@@ -188,21 +188,30 @@
             We present the evaluations on compilation/computation accuracy, where we compare
             FALCON with state-of-the-art methods in different transcompilation directions.
             We conclude that
-            (1) FALCON performs the best in all directions with close to 100% accuracy for compilation and 86.9% to 100%
-            accuracy
-            for computation. This clearly indicates that FALCON is capable of handling source-to-source code translation
-            tasks on various DLS with minimal human efforts, bringing revolutionary advancements to the DLS programming
-            domain.
-            (2) FALCON performs better than the SOTA LLM-based methods. Although the LLM-based methods have achieved
-            high accuracy in certain cases, it is challenging for them to reach 100% accuracy due to the
-            uncertainty of LLMs. This means that LLM-based methods cannot be applied to transcompilers which have an
-            extremely high demand for accuracy. In contrast, our approach can achieve 100% accuracy in most situations,
-            demonstrating its practical applicability as a transcompiler.
-            (3) FALCON performs better than the SOTA rule-based methods. For C → CUDA C, FALCON achieves 100%
-            compilation and 98.2% computation accuracy, which is ∼50% higher than PPCG. For the easier CUDA C → HIP
-            task, FALCON successfully converts and executes with 100% accuracy, outperforming HIPIFY, which achieves
-            85.7%. Also, this result shows that FALCON’s flexibility across various DLS without much adaptation cost
-            while rule-based methods cannot.
+            <p>
+              (1) FALCON performs the best in all directions with close to 100% accuracy for compilation and 86.9% to
+              100% accuracy for computation. This clearly indicates that FALCON is capable of handling source-to-source
+              code
+              translation
+              tasks on various DLS with minimal human efforts, bringing revolutionary advancements to the DLS
+              programming
+              domain.
+            </p>
+            <p>
+              (2) FALCON performs better than the SOTA LLM-based methods. Although the LLM-based methods have achieved
+              high accuracy in certain cases, it is challenging for them to reach 100% accuracy due to the
+              uncertainty of LLMs. This means that LLM-based methods cannot be applied to transcompilers which have an
+              extremely high demand for accuracy. In contrast, our approach can achieve 100% accuracy in most
+              situations,
+              demonstrating its practical applicability as a transcompiler.
+            </p>
+            <p>
+              (3) FALCON performs better than the SOTA rule-based methods. For C → CUDA C, FALCON achieves 100%
+              compilation and 98.2% computation accuracy, which is ∼50% higher than PPCG. For the easier CUDA C → HIP
+              task, FALCON successfully converts and executes with 100% accuracy, outperforming HIPIFY, which achieves
+              85.7%. Also, this result shows that FALCON’s flexibility across various DLS without much adaptation cost
+              while rule-based methods cannot.
+            </p>
             <div class="has-text-centered">
               <img src="./static/images/result.png" style="margin: 0 auto;">
             </div>
