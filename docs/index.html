@@ -119,7 +119,7 @@
                 </span>
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href="https://github.com/kcxain/falcon" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/kcxain/QiMeng-Xpiler" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -148,7 +148,7 @@
               to
               others. However, current transcompilation techniques struggle with either tremendous manual efforts or
               functional incorrectness, rendering “Write Once, Run Any- where" of tensor programs an open question. We
-              propose a novel transcompiler, i.e., FALCON, for auto-matically translating tensor programs across DLS via
+              propose a novel transcompiler, i.e., QiMeng-Xpiler, for auto-matically translating tensor programs across DLS via
               both large language models (LLMs) and symbolic program synthesis, i.e., neural-symbolic synthesis. The key
               insight is leveraging the powerful code generation ability of LLM to make costly search-based symbolic
               synthesis computationally tractable. Concretely, we propose multiple LLM-assisted compilation passes via
@@ -159,14 +159,14 @@
               and
               sequences of transformation passes. Experiments on 4 DLS with distinct programming interfaces, i.e., Intel
               DL Boost with VNNI, NVIDIA GPU with CUDA, AMD MI with HIP, and Cambricon MLU with BANG, demonstrate that
-              FALCON correctly translates different tensor programs at the accuracy of 95% on average, and the
+              QiMeng-Xpiler correctly translates different tensor programs at the accuracy of 95% on average, and the
               performance
               of translated programs achieves up to 2.0× over vendor-provided manually-optimized libraries. As a result,
               the programming productivity of DLS is improved by up to 96.0× via transcompiling legacy tensor programs.
             </p>
             <p>
-              The overview of FALCON, a novel transcompiler for automatic transcompilation of tensor programs across
-              different programming models. FALCON consists of two parts: (a) neural-symbolic program synthesis, which
+              The overview of QiMeng-Xpiler, a novel transcompiler for automatic transcompilation of tensor programs across
+              different programming models. QiMeng-Xpiler consists of two parts: (a) neural-symbolic program synthesis, which
               utilizes LLM to transform code and repair incorrect transformation through symbolic synthesis with limited
               scales, and (b) hierarchical performance auto-tuning, which systemically explores both the parameters and
               sequences of transformation passes.
@@ -186,11 +186,11 @@
           <div class="content">
             <h2 class="title is-3"> Main Results </h2>
             We present the evaluations on compilation/computation accuracy, where we compare
-            FALCON with state-of-the-art methods in different transcompilation directions.
+            QiMeng-Xpiler with state-of-the-art methods in different transcompilation directions.
             We conclude that
             <p>
-              (1) FALCON performs the best in all directions with close to 100% accuracy for compilation and 86.9% to
-              100% accuracy for computation. This clearly indicates that FALCON is capable of handling source-to-source
+              (1) QiMeng-Xpiler performs the best in all directions with close to 100% accuracy for compilation and 86.9% to
+              100% accuracy for computation. This clearly indicates that QiMeng-Xpiler is capable of handling source-to-source
               code
               translation
               tasks on vlarious DLS with minimal human efforts, bringing revolutionary advancements to the DLS
@@ -198,7 +198,7 @@
               domain.
             </p>
             <p>
-              (2) FALCON performs better than the SOTA LLM-based methods. Although the LLM-based methods have achieved
+              (2) QiMeng-Xpiler performs better than the SOTA LLM-based methods. Although the LLM-based methods have achieved
               high accuracy in certain cases, it is challenging for them to reach 100% accuracy due to the
               uncertainty of LLMs. This means that LLM-based methods cannot be applied to transcompilers which have an
               extremely high demand for accuracy. In contrast, our approach can achieve 100% accuracy in most
@@ -206,10 +206,10 @@
               demonstrating its practical applicability as a transcompiler.
             </p>
             <p>
-              (3) FALCON performs better than the SOTA rule-based methods. For C → CUDA C, FALCON achieves 100%
+              (3) QiMeng-Xpiler performs better than the SOTA rule-based methods. For C → CUDA C, QiMeng-Xpiler achieves 100%
               compilation and 98.2% computation accuracy, which is ∼50% higher than PPCG. For the easier CUDA C → HIP
-              task, FALCON successfully converts and executes with 100% accuracy, outperforming HIPIFY, which achieves
-              85.7%. Also, this result shows that FALCON’s flexibility across various DLS without much adaptation cost
+              task, QiMeng-Xpiler successfully converts and executes with 100% accuracy, outperforming HIPIFY, which achieves
+              85.7%. Also, this result shows that QiMeng-Xpiler’s flexibility across various DLS without much adaptation cost
               while rule-based methods cannot.
             </p>
             <div class="has-text-centered">
@@ -226,7 +226,7 @@
             <div class="content">
               <h2 class="title is-3">Translation Cases</h2>
               <p>
-                Given a CUDA code, the translated results for MLU, HIP, and DL Boost are generated by Falcon.
+                Given a CUDA code, the translated results for MLU, HIP, and DL Boost are generated by QiMeng-Xpiler.
               </p>
 
               <head>
