@@ -8,9 +8,10 @@ The overview of QiMeng-Xpiler, a novel transcompiler for automatic transcompilat
 Please cite using the following bibtex entry:
 
 ```
-@InProceedings{
-    title = 	 {QiMeng-Xpiler: Transcompiling Tensor Programs for Deep Learning Systems with a Neural-Symbolic Approach},
-    author =       {Shouyang Dong, Yuanbo Wen, Jun Bi, Di Huang, Jiaming Guo, Jianxing Xu, Ruibai Xu, Xinkai Song, Yifan Hao, Ling Li, Xuehai Zhou, Tianshi Chen, Qi Guo, Yunji Chen},
-    year = 	 {2025}
+@article{dong2025qimeng,
+  title={QiMeng-Xpiler: Transcompiling Tensor Programs for Deep Learning Systems with a Neural-Symbolic Approach},
+  author={Dong, Shouyang and Wen, Yuanbo and Bi, Jun and Huang, Di and Guo, Jiaming and Xu, Jianxing and Xu, Ruibai and Song, Xinkai and Hao, Yifan and Zhou, Xuehai and others},
+  journal={arXiv preprint arXiv:2505.02146},
+  year={2025}
 }
 ```
