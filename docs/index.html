@@ -42,6 +42,20 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    /* 图片悬浮效果 */
+    img {
+      transition: all 0.3s ease;
+      border-radius: 8px;
+    }
+
+    img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
@@ -54,7 +68,8 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">QiMeng-Xpiler: Transcompiling Tensor Programs for Deep Learning
               Systems with a Neural-Symbolic Approach</h1>
-            <div class="is-size-5 publication-authors">
+
+            <div class="is-size-5 publication-authors" style="margin-top: 1.5rem;">
               <span class="author-block">
                 <a>Shouyang Dong</a><sup>1,2</sup>,</span>
               <span class="author-block">
@@ -97,7 +112,7 @@
               </span>
             </div>
 
-            <div class="is-size-5 publication-authors">
+            <div class="is-size-5 publication-authors" style="margin-top: 1rem; margin-bottom: 2rem;">
               <span class="author-block"><sup>1</sup>University of Science and Technology of China</span><br>
               <span class="author-block"><sup>2</sup>Cambricon Technologies</span><br>
               <span class="author-block"><sup>3</sup>SKL of Processors, Institute of Computing Technology, Chinese
@@ -139,15 +154,15 @@
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Overview</h2>
+          <h2 class="title is-3" style="margin-bottom: 2rem;">Overview</h2>
           <div class="content has-text-justified">
-            <p>
+            <p style="margin-bottom: 2rem; line-height: 1.8;">
               Heterogeneous deep learning systems (DLS) such as GPUs and ASICs have been widely deployed in industrial
               data centers, which requires to develop multiple low-level tensor programs for different platforms. An
               attractive solution to relieve the programming burden is to transcompile the legacy code of one platform
               to
               others. However, current transcompilation techniques struggle with either tremendous manual efforts or
-              functional incorrectness, rendering “Write Once, Run Any- where" of tensor programs an open question. We
+              functional incorrectness, rendering "Write Once, Run Any- where" of tensor programs an open question. We
               propose a novel transcompiler, i.e., QiMeng-Xpiler, for auto-matically translating tensor programs across
               DLS via
               both large language models (LLMs) and symbolic program synthesis, i.e., neural-symbolic synthesis. The key
@@ -165,7 +180,12 @@
               of translated programs achieves up to 2.0× over vendor-provided manually-optimized libraries. As a result,
               the programming productivity of DLS is improved by up to 96.0× via transcompiling legacy tensor programs.
             </p>
-            <p>
+          </div>
+          <div class="has-text-centered" style="margin: 3rem 0;">
+            <img src="./static/images/overview.png">
+          </div>
+          <div class="content has-text-justified">
+            <p style="line-height: 1.6;">
               The overview of QiMeng-Xpiler, a novel transcompiler for automatic transcompilation of tensor programs
               across
               different programming models. QiMeng-Xpiler consists of two parts: (a) neural-symbolic program synthesis,
@@ -175,7 +195,6 @@
               sequences of transformation passes.
             </p>
           </div>
-          <img src="./static/images/overview.png">
         </div>
       </div>
       <!--/ Overview. -->
@@ -187,12 +206,15 @@
       <div class="columns is-centered">
         <div class="column">
           <div class="content">
-            <h2 class="title is-3"> Main Results </h2>
-            We present the evaluations on compilation/computation accuracy, where we compare
-            QiMeng-Xpiler with state-of-the-art methods in different transcompilation directions.
-            We conclude that
-            <p>
-              (1) QiMeng-Xpiler performs the best in all directions with close to 100% accuracy for compilation and
+            <h2 class="title is-3" style="margin-bottom: 2rem;"> Main Results </h2>
+            <p style="margin-bottom: 2rem; line-height: 1.6;">
+              We present the evaluations on compilation/computation accuracy, where we compare
+              QiMeng-Xpiler with state-of-the-art methods in different transcompilation directions.
+              We conclude that:
+            </p>
+            <p style="margin-bottom: 1.5rem; line-height: 1.7;">
+              <strong>(1)</strong> QiMeng-Xpiler performs the best in all directions with close to 100% accuracy for
+              compilation and
               86.9% to
               100% accuracy for computation. This clearly indicates that QiMeng-Xpiler is capable of handling
               source-to-source
@@ -202,8 +224,9 @@
               programming
               domain.
             </p>
-            <p>
-              (2) QiMeng-Xpiler performs better than the SOTA LLM-based methods. Although the LLM-based methods have
+            <p style="margin-bottom: 1.5rem; line-height: 1.7;">
+              <strong>(2)</strong> QiMeng-Xpiler performs better than the SOTA LLM-based methods. Although the LLM-based
+              methods have
               achieved
               high accuracy in certain cases, it is challenging for them to reach 100% accuracy due to the
               uncertainty of LLMs. This means that LLM-based methods cannot be applied to transcompilers which have an
@@ -211,20 +234,20 @@
               situations,
               demonstrating its practical applicability as a transcompiler.
             </p>
-            <p>
-              (3) QiMeng-Xpiler performs better than the SOTA rule-based methods. For C → CUDA C, QiMeng-Xpiler achieves
+            <p style="margin-bottom: 2rem; line-height: 1.7;">
+              <strong>(3)</strong> QiMeng-Xpiler performs better than the SOTA rule-based methods. For C → CUDA C,
+              QiMeng-Xpiler achieves
               100%
               compilation and 98.2% computation accuracy, which is ∼50% higher than PPCG. For the easier CUDA C → HIP
               task, QiMeng-Xpiler successfully converts and executes with 100% accuracy, outperforming HIPIFY, which
               achieves
-              85.7%. Also, this result shows that QiMeng-Xpiler’s flexibility across various DLS without much adaptation
+              85.7%. Also, this result shows that QiMeng-Xpiler's flexibility across various DLS without much adaptation
               cost
               while rule-based methods cannot.
             </p>
-            <div class="has-text-centered">
+            <div class="has-text-centered" style="margin: 3rem 0;">
               <img src="./static/images/result.png" style="margin: 0 auto;">
             </div>
-            </p>
           </div>
         </div>
       </div>
@@ -233,8 +256,8 @@
         <div class="container is-max-desktop">
           <div class="column">
             <div class="content">
-              <h2 class="title is-3">Translation Cases</h2>
-              <p>
+              <h2 class="title is-3" style="margin-bottom: 2rem;">Translation Cases</h2>
+              <p style="margin-bottom: 2rem; line-height: 1.6;">
                 Given a CUDA code, the translated results for BangC, HIP, and DL Boost are generated by QiMeng-Xpiler.
               </p>
 
@@ -268,6 +291,9 @@
                     /* 隐藏内部溢出的滚动条 */
                     box-sizing: border-box;
                     /* 关键：包含padding和border */
+                    transition: all 0.3s ease;
+                    /* 添加过渡动画 */
+                    position: relative;
                   }
 
                   /* 单个全宽容器 */
@@ -283,34 +309,82 @@
                     min-width: 0;
                     height: 100%;
                     /* 继承行高 */
+                    /* 添加鼠标指针 */
+                  }
+
+                  /* 悬停时展开效果 */
+                  .triple:hover {
+                    flex: 4;
+                    /* 悬停时占据更多空间 */
+                    z-index: 10;
+                    /* 确保在最上层 */
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+                    /* 添加阴影效果 */
+                    transform: scale(1.05);
+                    /* 整体放大5% */
+                    transition: all 0.3s ease;
                   }
 
                   /* 标题样式 */
                   .code-title {
-                    font-family: -apple-system, sans-serif;
-                    font-size: 16px;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                    font-size: 14px;
                     font-weight: 600;
-                    padding: 15px 15px 10px;
+                    padding: 12px 16px;
                     margin: 0;
-                    border-bottom: 2px solid #eee;
+                    background: #e9ecef;
+                    color: #495057;
+                    border-bottom: 1px solid #dee2e6;
                     flex-shrink: 0;
                     /* 防止标题被压缩 */
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-radius: 8px 8px 0 0;
+                    letter-spacing: 0.3px;
+                  }
+
+                  /* 复制按钮样式 */
+                  .copy-btn {
+                    background: #6c757d;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    padding: 4px 10px;
+                    font-size: 11px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    letter-spacing: 0.3px;
+                  }
+
+                  .copy-btn:hover {
+                    background: #5a6268;
+                    transform: translateY(-1px);
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                  }
+
+                  .copy-btn.copied {
+                    background: #28a745;
                   }
 
                   /* 代码内容容器 */
                   .code-content {
                     flex: 1;
                     overflow-y: auto;
-                    padding: 15px;
+                    padding: 8px 15px 15px 15px;
+                    background: #f8f9fa;
                   }
 
                   /* Prism样式调整 */
                   pre[class*="language-"] {
                     margin: 0;
+                    background: #f8f9fa !important;
                   }
 
                   code[class*="language-"] {
                     font-size: 14px;
+                    background: #f8f9fa !important;
                   }
                 </style>
               </head>
@@ -319,9 +393,12 @@
                 <div class="container">
                   <!-- CUDA -->
                   <div class="code-container single">
-                    <h3 class="code-title">CUDA</h3>
+                    <h3 class="code-title">
+                      CUDA
+                      <button class="copy-btn" onclick="copyCode(this, 'cuda-code')">Copy</button>
+                    </h3>
                     <div class="code-content">
-                      <pre><code class="language-cpp">
+                      <pre><code class="language-cpp" id="cuda-code">
 extern "C" __global__ void matmul(half *A, half *B, float *D)
 {
 	int ix = (blockIdx.x * blockDim.x + threadIdx.x)/32;
@@ -362,9 +439,12 @@ extern "C" __global__ void matmul(half *A, half *B, float *D)
                   <div class="code-row">
                     <!-- MLU -->
                     <div class="code-container triple">
-                      <h3 class="code-title">BangC</h3>
+                      <h3 class="code-title">
+                        BangC
+                        <button class="copy-btn" onclick="copyCode(this, 'bangc-code')">Copy</button>
+                      </h3>
                       <div class="code-content">
-                        <pre><code class="language-cpp">
+                        <pre><code class="language-cpp" id="bangc-code">
 extern "C" __mlu_global__ void matmul(half* data, half* filter, float* output) {
   __nram__ half date_block[768];
   __wram__ half filter_block[65536];
@@ -385,9 +465,12 @@ extern "C" __mlu_global__ void matmul(half* data, half* filter, float* output) {
 
                     <!-- HIP -->
                     <div class="code-container triple">
-                      <h3 class="code-title">HIP</h3>
+                      <h3 class="code-title">
+                        HIP
+                        <button class="copy-btn" onclick="copyCode(this, 'hip-code')">Copy</button>
+                      </h3>
                       <div class="code-content">
-                        <pre><code class="language-cpp">
+                        <pre><code class="language-cpp" id="hip-code">
 extern "C" __global__ void matmul(half *A, half *B, float *C) {
     using float16x4 = __attribute__((__vector_size__(4 * sizeof(float16_t)))) float16_t;
     using floatx4 = __attribute__((__vector_size__(4 * sizeof(float)))) float;
@@ -426,9 +509,12 @@ extern "C" __global__ void matmul(half *A, half *B, float *C) {
 
                     <!-- DL Boost -->
                     <div class="code-container triple">
-                      <h3 class="code-title">DL Boost</h3>
+                      <h3 class="code-title">
+                        DL Boost
+                        <button class="copy-btn" onclick="copyCode(this, 'dlboost-code')">Copy</button>
+                      </h3>
                       <div class="code-content">
-                        <pre><code class="language-cpp">
+                        <pre><code class="language-cpp" id="dlboost-code">
 extern "C"  void matmul(const int8_t* A, const int8_t* B, int32_t* C) {
     #pragma omp parallel for
     for (int i = 0; i < 512; ++i) {
@@ -466,16 +552,15 @@ extern "C"  void matmul(const int8_t* A, const int8_t* B, int32_t* C) {
       <!-- <section class="section" id="BibTeX"> -->
       <!-- <div class="columns is-centered"> -->
       <div class="container content is-max-desktop">
-        <h2 class="title is-3"> BibTex </h2>
-        <pre>
-      <pre>
-  <code class="nohighlight" style="background-color: transparent; color: black; font-family: monospace;">@article{dong2025qimeng,
-  title={QiMeng-Xpiler: Transcompiling Tensor Programs for Deep Learning Systems with a Neural-Symbolic Approach},
-  author={Dong, Shouyang and Wen, Yuanbo and Bi, Jun and Huang, Di and Guo, Jiaming and Xu, Jianxing and Xu, Ruibai and Song, Xinkai and Hao, Yifan and Zhou, Xuehai and others},
-  journal={arXiv preprint arXiv:2505.02146},
-  year={2025}
-}</code>
-    </pre>
+        <h2 class="title is-3" style="margin-bottom: 2rem;"> BibTex </h2>
+        <pre style="margin-top: 1rem;">
+@article{dong2025qimeng,
+    title={QiMeng-Xpiler: Transcompiling Tensor Programs for Deep Learning Systems with a Neural-Symbolic Approach},
+    author={Dong, Shouyang and Wen, Yuanbo and Bi, Jun and Huang, Di and Guo, Jiaming and Xu, Jianxing and Xu, Ruibai and Song, Xinkai and Hao, Yifan and Zhou, Xuehai and others},
+    journal={arXiv preprint arXiv:2505.02146},
+    year={2025}
+}
+        </pre>
       </div>
       <!-- </section> -->
   </section>
